@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHOES CREW | 2026 ACTIVATED</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Montserrat:wght@300;800&display=swap');
+        
+        body { margin: 0; background: #000; color: #fff; font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
+
+        /* Hero Section with First Photo */
+        .hero {
+            height: 100vh; display: flex; flex-direction: column; 
+            justify-content: center; align-items: center; text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('p1.jpg');
+            background-size: cover; background-position: center;
+        }
+        .hero h1 { font-family: 'Syncopate', sans-serif; font-size: clamp(2rem, 10vw, 5rem); letter-spacing: 10px; margin: 0; text-shadow: 0 0 20px #00ff00; }
+
+        .section-title { font-family: 'Syncopate'; text-align: center; padding: 60px 20px 20px; letter-spacing: 5px; color: gold; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 20px; max-width: 1200px; margin: 0 auto; }
+        
+        .card { background: #111; border-radius: 20px; padding: 15px; border: 1px solid #333; transition: 0.4s; text-align: center; }
+        .card:hover { transform: translateY(-10px); border-color: #00ff00; box-shadow: 0 0 20px rgba(0,255,0,0.2); }
+        .card img, .card video { width: 100%; border-radius: 15px; object-fit: cover; height: 400px; background: #000; }
+        .card p { margin-top: 15px; font-weight: bold; letter-spacing: 1px; }
+
+        .contract { background: #00ff00; color: #000; padding: 80px 20px; text-align: center; margin-top: 50px; clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%); }
+        .sign-btn { background: #000; color: #00ff00; border: none; padding: 20px 40px; font-size: 1.2rem; font-weight: bold; border-radius: 50px; cursor: pointer; transition: 0.3s; }
+        .sign-btn:hover { transform: scale(1.1); }
+
+        #music-btn { position: fixed; bottom: 20px; right: 20px; background: #fff; color: #000; padding: 12px 25px; border-radius: 50px; cursor: pointer; z-index: 1000; font-weight: 800; box-shadow: 0 0 15px rgba(255,255,255,0.5); }
+    </style>
+</head>
+<body>
+
+    <div id="music-btn" onclick="toggleMusic()">🎵 PLAY ILAHI</div>
+
+    <section class="hero">
+        <p style="letter-spacing: 10px; color: #00ff00; font-weight: 800;">RECAP 2025</p>
+        <h1>CHOES CREW</h1>
+        <p style="font-size: 1.1rem; max-width: 600px; margin-top: 20px; opacity: 0.9;">Jo MAJJA 2025 mein kiya, usse bhi CRAZY 2026 banayenge! 🚀</p>
+    </section>
+
+    <h2 class="section-title">THE 2025 REEL 🎬</h2>
+    <div style="max-width: 500px; margin: 0 auto; padding: 0 20px;">
+        <div class="card">
+            <video controls><source src="v1.mp4" type="video/mp4"></video>
+            <p>Memories for a Lifetime ❤️</p>
+        </div>
+    </div>
+
+    <h2 class="section-title">MAJJA & MEMORIES</h2>
+    <div class="grid">
+        <div class="card">
+            <video muted loop onmouseover="this.play()" onmouseout="this.pause()"><source src="f1.mp4"></video>
+            <p>The Funny Side! 😂</p>
+        </div>
+        <div class="card">
+            <img src="p2.jpg">
+            <p>The Squad Vibe ✨</p>
+        </div>
+        <div class="card">
+            <video muted loop onmouseover="this.play()" onmouseout="this.pause()"><source src="v2.mp4"></video>
+            <p>Emotional Moments 🥺</p>
+        </div>
+        <div class="card">
+            <img src="p3.jpg">
+            <p>Partners in Crime! 🔥</p>
+        </div>
+    </div>
+
+    <section class="contract">
+        <h2 style="font-size: 2.5rem; margin: 0;">2026 CREW CONTRACT</h2>
+        <p style="font-size: 1.2rem;">By clicking below, you promise to never stop being this CRAZY!</p>
+        <br>
+        <button class="sign-btn" onclick="sign()">SIGN FOR 2026 ✍️</button>
+    </section>
+
+    <footer style="text-align: center; padding: 40px; color: #444; font-size: 0.8rem;">
+        EST. 2025 | HANDCRAFTED BY ISHWARI
+    </footer>
+
+    <audio id="bgMusic" loop><source src="ilahi.mp3" type="audio/mpeg"></audio>
+
+    <script>
+        const audio = document.getElementById('bgMusic');
+        function toggleMusic() {
+            if (audio.paused) { 
+                audio.play(); 
+                document.getElementById('music-btn').innerText = "⏸ PAUSE"; 
+            } else { 
+                audio.pause(); 
+                document.getElementById('music-btn').innerText = "🎵 PLAY ILAHI"; 
+            }
+        }
+
+        function sign() {
+            confetti({ particleCount: 250, spread: 80, origin: { y: 0.6 } });
+            setTimeout(() => { 
+                alert("Contract Signed! Let's Kill it in 2026, Choes Crew! 🚀🔥"); 
+            }, 500);
+        }
+    </script>
+</body>
+</html>
